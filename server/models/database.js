@@ -9,3 +9,4 @@ query.on('end', function() { client.end(); });
 
 // Here we create a new instance of Client to interact with the database and then establish communication with it
 // via the connect() method. We then set run a SQL query via the query() method.
+// curl --data "name=testUniverse&description=whereAllGoodPeopleComeToTest" http://127.0.0.1:3000/api/v1/alternate_universes
