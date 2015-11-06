@@ -1,17 +1,46 @@
-angular.module('nodeTodo', [])
+angular.module('alternateUniverses', [])
 
 .controller('mainController', function($scope, $http) {
 
   $scope.formData = {};
-  $scope.todoData = {};
-
-    // Get all todos
-  $http.get('/alternate_universes')
+  $scope.alternateUniverseData = {};
+  
+    // Get all alternateUniverses
+  $http.get('/')
     .success(function(data) {
-      $scope.todoData = data;
-      console.log(data);
+      // $scope.alternateUniverseData;
+      // console.log(data);
     })
     .error(function(error) {
       console.log('Error: ' + error);
     });
+
+
+    // Delete a alternateUniverse
+  $scope.deleteUniverse = function(alternateUniverseID) {
+    $http.delete('/' + alternateUniverseID)
+      .success(function(data) {
+        $scope.alternateUniverseData = data;
+        console.log(data);
+      })
+      .error(function(data) {
+        console.log('Error: ' + data);
+      });
+  };
+
+  // Create a new alternateUniverse
+  $scope.createUniverse = function() {
+    if ($scope.alternateUniverseData.name === undefined && $scope.alternateUniverseData.description === undefined) {
+      console.log("nope");
+    } else {
+    $http.post('/', $scope.alternateUniverseData)
+      .success(function(data) {
+        console.log(data);
+      })
+      .error(function(error) {
+        console.log('Error: ' + error);
+      });
+    }
+  };
+
 });
