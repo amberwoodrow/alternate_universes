@@ -30,17 +30,14 @@ angular.module('alternateUniverses', [])
 
   // Create a new alternateUniverse
   $scope.createUniverse = function() {
-    if ($scope.alternateUniverseData.name === undefined && $scope.alternateUniverseData.description === undefined) {
-      console.log("nope");
-    } else {
     $http.post('/', $scope.alternateUniverseData)
-      .success(function(data) {
-        console.log(data);
-      })
-      .error(function(error) {
-        console.log('Error: ' + error);
-      });
-    }
+    .success(function(data) {
+      console.log(data.replace("/r/gifs", ""));
+      $scope.googleGif = data.replace("/r/gifs", "");
+    })
+    .error(function(error) {
+      console.log('Error: ' + error);
+    });
   };
 
 });
