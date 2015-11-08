@@ -1,10 +1,13 @@
+require('dotenv').load();
 var express = require('express');
 var router = express.Router();
 var pg = require('pg');
 var path = require('path');
 var request = require("request");
+var SEARCH_KEY = process.env.SEARCH_KEY;
 
 var connectionString = require(path.join(__dirname, '../', '../', 'config'));
+console.log(SEARCH_KEY)
 
 router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../../client/public/', 'index.html'));
@@ -95,8 +98,8 @@ router.get('/alternate_universes', function(req, res) {
 
 });
 
-// router.get('/', function(req, res) {
+router.get('/', function(req, res) {
 
-// });
+});
 
 module.exports = router;
