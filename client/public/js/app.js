@@ -32,8 +32,8 @@ angular.module('alternateUniverses', [])
   $scope.createUniverse = function() {
     $http.post('/', $scope.alternateUniverseData)
     .success(function(data) {
-      console.log(data.replace("/r/gifs", ""));
-      $scope.googleGif = data.replace("/r/gifs", "");
+      console.log(data);
+      $scope.gifs = data;
     })
     .error(function(error) {
       console.log('Error: ' + error);

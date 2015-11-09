@@ -7,7 +7,6 @@ var request = require("request");
 var SEARCH_KEY = process.env.SEARCH_KEY;
 
 var connectionString = require(path.join(__dirname, '../', '../', 'config'));
-console.log(SEARCH_KEY)
 
 router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../../client/public/', 'index.html'));
@@ -19,7 +18,7 @@ router.post('/', function(req, res) {
   var results = [];
 
   // Grab data from http request
-  var data = {name: req.body.name, description: req.body.description};
+  // var data = {name: req.body.name, description: req.body.description};
   console.log(req.body.name);
   console.log(req.body.description);
 
@@ -34,10 +33,17 @@ router.post('/', function(req, res) {
   //   }      
 
     gif = new Promise(function (resolve, reject) {
-      request('https://www.googleapis.com/customsearch/v1?key='+SEARCH_KEY+'&cx=008695872185510260610:-95vdil7b6k&q='+req.body.name+'', function (error, response, html) {
+      request('https://www.googleapis.com/customsearch/v1?key='+SEARCH_KEY+'&cx=008695872185510260610:-95vdil7b6k&q='+req.body.name+' animated gif&searchType=image', function (error, response, html) {
         if (!error && response.statusCode == 200 && (JSON.parse(html).searchInformation.totalResults !== '0')) {
-          console.log(JSON.parse(html));
-          resolve(JSON.parse(html).items[0].formattedUrl);
+          // console.log(JSON.parse(html).items[0].link);
+          var links = [];
+          var parseHtml = JSON.parse(html);
+          for (var i=0; i<parseHtml.items.length; i++) {
+            console.log(parseHtml.items[i].link);
+            links.push(parseHtml.items[i].link);
+
+          }
+          resolve(links);
         } else {
           reject(error);
         } 

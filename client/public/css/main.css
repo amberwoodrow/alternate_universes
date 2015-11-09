@@ -1,4 +1,15 @@
 .gif {
   text-align: center;
-  margin: 20px;
+  margin-top: 15px;
+  display: flex;
+  flex-flow: row wrap;
 }
+
+img {
+  height: 300px;
+  margin: 15px 0 15px 0;
+}
+
+/*.gif-holder {
+  height: 500px;
+}*/

@@ -24,7 +24,9 @@
       </form>
 
       <section class="gif">
-        <img ng-src="http://i.{{googleGif}}.gif"/> <!-- http://i.imgur.com/TQGYTHg.gif .replace("/r/gifs")-->
+        <!-- <section ng-repeat="gif in gifs track by $index" class="gif-holder"> -->
+          <img ng-repeat="gif in gifs track by $index" class="col-md-4" ng-src="{{gif}}"/>
+        <!-- </section> -->
       </section>
 
     </section> <!-- container -->
