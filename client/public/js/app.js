@@ -30,6 +30,7 @@ angular.module('alternateUniverses', [])
 
   // Create a new alternateUniverse
   $scope.createUniverse = function() {
+    // must contain the word universe
     $http.post('/', $scope.alternateUniverseData)
     .success(function(data) {
       console.log(data);
@@ -41,3 +42,13 @@ angular.module('alternateUniverses', [])
   };
 
 });
+
+// universe has many gifs
+// render errors
+// use directives
+// if universe exists get it and it's description and tell the user the universe already exists
+
+function unique(str) {
+
+}
+
