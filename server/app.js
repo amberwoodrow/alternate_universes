@@ -8,16 +8,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 
 
-// *** config file *** //
-// var config = require('../_config');
-
-
 // *** express instance *** //
 var app = express();
-
-
-// *** routes *** //
-// var mainRoutes = require('./routes/index');
 
 
 // *** config middleware *** //

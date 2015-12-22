@@ -1,0 +1,17 @@
+{
+  "development": {
+    "username": "update me",
+    "password": "update me",
+    "database": "todos",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  }
+}
+
+
+// var universe = client.query('CREATE TABLE universes(id SERIAL PRIMARY KEY, name VARCHAR(25) not null unique, description VARCHAR(250) not null)');
+// var gifUrl = client.query('CREATE TABLE gifurl(id SERIAL PRIMARY KEY, url VARCHAR(255) not null, universe_id integer REFERENCES universes(id))');
+
+// node_modules/.bin/sequelize model:create --name Universe --attributes "name:string, description:string"
+// node_modules/.bin/sequelize model:create --name Url --attributes "url:string, UserId:integer"
